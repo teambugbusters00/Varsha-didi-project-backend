@@ -11,6 +11,11 @@ mongoose.connect(mongoURI);
 // Import models
 const { Task, Comment } = require('./data');
 
+// Root route for testing
+app.get('/', (req, res) => {
+  res.json({ message: 'Task Comment API is running!', status: 'OK' });
+});
+
 // POST /tasks/:taskId/comments - Create a comment for a task
 app.post('/tasks/:taskId/comments', async (req, res) => {
   try {
